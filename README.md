@@ -11,7 +11,7 @@ use Library\Base\Database;
 
 require_once('database/database.class.php');
 
-$database = new Database("localhost", 3306, "root", "", "table");
+$database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root", "password", "table");
 ?>
 ```
 - You can create the database structure in the method "tableMatrix"; which is called automatically after a successful connection to the database.
