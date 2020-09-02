@@ -18,7 +18,7 @@ $database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root"
 
 # Introduction to the methods:
  #### writeNow($table = string, $columns = array(), $values = array()):
-  - Declaration: <br />Write into table.
+  - Declaration: <br />Write into a table.
     
   - Example:
     ```php
