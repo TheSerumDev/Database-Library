@@ -169,7 +169,7 @@ $database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root"
       SELECT * FROM $table WHERE firstName LIKE ?;
       
     Output:
-      	Returns any values that start with "a" as array
+      Returns any values that start with "a" as array
     ```
 #### invokeCommand($command): (Method is a private function, but you can changing that to public)
  - Declaration: <br />Execute a command in the current database
