@@ -1,6 +1,9 @@
 # Database-Library
 Database Library for the program language PHP
 
+**INFORMATION** <br />-----------------<br />
+The library is currently in the **BETA-Phase!**<br /> Errors can happen, so if you found a bug, please let me know. You can contact me at the email address **database-library@serumdev.de**; or via Twitter at https://www.twitter.com/SerumDev via Direct Message. Thanks!
+
 # How to work with the library?
 
 #### Connect to database:
@@ -17,7 +20,7 @@ $database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root"
 - You can create the database structure in the method "tableMatrix"; which is called automatically after a successful connection to the database.
 
 # Introduction to the methods:
- #### writeNow($table = string, $columns = array(), $values = array()):
+ #### writeNow($table, $columns = array(), $values = array()):
   - Declaration: <br />Write into a table.
     
   - Example:
@@ -28,7 +31,7 @@ $database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root"
     Executed Query:
       INSERT INTO users("firstName", "lastName") VALUES(?, ?);
     ```
-#### delete($table = string, $key, $value):
+#### delete($table, $key, $value):
   - Declaration: <br />Delete a entry from the table
     
   - Example:
@@ -39,7 +42,7 @@ $database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root"
     Executed Query:
       DELETE FROM users WHERE firstName=?;
     ```
-#### queryAll($table = string):
+#### queryAll($table):
   - Declaration: <br />Returns all entries from the table
     
   - Example:
@@ -62,7 +65,7 @@ $database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root"
             ) 
       )
     ```
-#### query($table = string, $key, $value):
+#### query($table, $key, $value):
   - Declaration: <br />Returns an object
     
   - Example:
@@ -82,7 +85,7 @@ $database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root"
         [email] => max@mustermann.eu [2] => max@mustermann.eu
       )
     ```
-#### queryConditional($table = string, $key, $value, $key2, $value2):
+#### queryConditional($table, $key, $value, $key2, $value2):
   - Declaration: <br />Returns an object where you can define 2 key and values
   
   - Example:
@@ -154,4 +157,28 @@ $database = new Database("host e.g. localhost", port e.g. 3306, "user e.g. root"
       0 || 1
     ```
 #### queryLike($table, $key, $value):
-  - Declaration: <br />TODO
+  - Declaration: <br />Returns any values that start with the $value (pattern)
+  
+  - Example:
+    ```php
+    Code:
+      $result = $database->queryLike("users", "firstName", "a%");
+      print_r ($result);
+      
+    Executed Query:
+      SELECT * FROM $table WHERE firstName LIKE ?;
+      
+    Output:
+      	Returns any values that start with "a" as array
+    ```
+#### invokeCommand($command): (Method is a private function, but you can changing that to public)
+ - Declaration: <br />Execute a command in the current database
+ 
+ - Example:
+   ```php
+    Code:
+      $this->invokeCommand("CREATE TABLE IF NOT EXISTS test(firstName VARCHAR(256), lastName VARCHAR(256), email VARCHAR(256));");
+      
+    Executed Query:
+      CREATE TABLE IF NOT EXISTS test(firstName VARCHAR(256), lastName VARCHAR(256), email VARCHAR(256));
+    ```
