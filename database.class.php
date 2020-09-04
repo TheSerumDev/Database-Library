@@ -73,14 +73,14 @@ class Database
     {
         $statement = $this->connection->prepare("SELECT * FROM $table WHERE $key=? AND $key2=?");
         $statement->execute(array($value, $value2));
-        return $statement->fetch();
+        return $statement->fetchAll();
     }
 
     public function querySpecial($qry)
     {
         $statement = $this->connection->prepare($qry);
         $statement->execute();
-        return $statement->fetch();
+        return $statement->fetchAll();
     }
 
     public function queryLength($table)
