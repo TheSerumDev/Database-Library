@@ -1,5 +1,5 @@
 # Database-Library
-Database Library for the program language PHP
+Database Library for PHP
 
 **INFORMATION** <br />-----------------<br />
 The library is currently in the **BETA-Phase!**<br /> Errors can happen, so if you found a bug, please let me know. You can contact me at the email address **database-library@serumdev.de**; or via Twitter at https://www.twitter.com/SerumDev via Direct Message. Thanks!
